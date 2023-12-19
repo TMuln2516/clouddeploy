@@ -21,6 +21,11 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.google.cloud.sql</groupId>
+			<artifactId>mysql-socket-factory</artifactId>
+			<version>1.0.16</version>
+		</dependency>
 		<!-- Spring Framework dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -111,7 +116,8 @@
 			<version>4.5.3</version> </dependency> -->
 
 		<!-- Select2 CSS -->
-		<!-- <dependency> <groupId>org.webjars</groupId> <artifactId>select2</artifactId> 
+		<!-- <dependency> <groupId>org.webjars</groupId>
+		<artifactId>select2</artifactId> 
 			<version>4.0.10</version> </dependency> -->
 
 		<!-- Font Awesome -->
@@ -138,10 +144,11 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.1</version> <!-- Hoặc phiên bản servlet-api mà bạn đang sử dụng -->
+			<version>4.0.1</version> <!-- Hoặc phiên bản servlet-api mà bạn đang
+			sử dụng -->
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.google.cloud.sql</groupId>
 			<artifactId>mysql-socket-factory</artifactId>
