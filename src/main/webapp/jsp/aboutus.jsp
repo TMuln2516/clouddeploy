@@ -71,17 +71,16 @@
 							aria-disabled="true">Người Tìm Việc</a>
 							<div class="dropdown-menu tdropdown"
 								aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="register?user=USER">Đăng
-									ký</a> <a class="dropdown-item" href="login?user=USER">Đăng
-									nhập</a>
+								<a class="dropdown-item" href="register?user=USER">Đăng ký</a> <a
+									class="dropdown-item" href="login?user=USER">Đăng nhập</a>
 							</div></li>
-					
+
 						<!--end chinhsua-->
 						<!-- <li class="nav-item"><a class="nav-link"
 							href="register?user=USER">Đăng Ký</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="login?user=USER">Đăng Nhập</a></li> -->
-							
+
 						<li class="nav-item dropdown"><a
 							class="nav-link btn btn-employers dropdown-toggle" href="#"
 							id="navbarDropdown" tabindex="-1" role="button"
@@ -158,17 +157,17 @@
 
 	<!--about us-->
 	<div class="container job-board2">
-	<div class="row">
-	<div class="col-md-12 job-board2-wrap-header">
-					<h3>About US</h3>
-	<p style="font-size: 20px;line-height: 1.5;font-weight:bold;">Nhóm 5 - Môn Lập Trình Web<br>
-Nguyễn Hoàng Lực - 21110838<br>
-Nguyễn Quốc Huy - 21110189<br>
-Nguyễn Nhất Huy - 21110830<br>
-Nguyễn Bảo Đăng Khoa - 21110212<br>
-Đây là project cuối kỳ của chúng em. Chúng em cảm ơn thầy đã dành thời gian xem qua ạ.</p>
-	</div>
-	</div>
+		<div class="row">
+			<div class="col-md-12 job-board2-wrap-header">
+				<h3>About US</h3>
+				<p style="font-size: 20px; line-height: 1.5; font-weight: bold;">
+					Nhóm 5 - Môn Lập Trình Web<br> Nguyễn Hoàng Lực - 21110838<br>
+					Nguyễn Quốc Huy - 21110189<br> Nguyễn Nhất Huy - 21110830<br>
+					Nguyễn Bảo Đăng Khoa - 21110212<br> Đây là project cuối kỳ của
+					chúng em. Chúng em cảm ơn thầy đã dành thời gian xem qua ạ.
+				</p>
+			</div>
+		</div>
 	</div>
 	<div class="clearfix"></div>
 
@@ -211,7 +210,7 @@ Nguyễn Bảo Đăng Khoa - 21110212<br>
 
 	<div class="clearfix"></div>
 
-	
+
 
 	<!-- job support -->
 	<div class="container-fluid job-support-wrapper">
@@ -222,7 +221,8 @@ Nguyễn Bảo Đăng Khoa - 21110212<br>
 						<ul class="spp-list justify-content-center">
 							<li><span><i class="fa fa-question-circle pr-2 icsp"></i>Hỗ
 									trợ nhà tuyển dụng:</span></li>
-							<li><span><i class="fa fa-phone pr-2 icsp"></i> +84 123456789</span></li>
+							<li><span><i class="fa fa-phone pr-2 icsp"></i> +84
+									123456789</span></li>
 						</ul>
 					</div>
 				</div>
@@ -237,13 +237,14 @@ Nguyễn Bảo Đăng Khoa - 21110212<br>
 			<div class="row">
 				<div class="col-md-6 col-sm-12 col-12">
 					<ul class="footer-contact">
-						<li><a href="#"> <i class="fa fa-phone fticn"></i> +84 123456789
+						<li><a href="#"> <i class="fa fa-phone fticn"></i> +84
+								123456789
 						</a></li>
 						<li><a href="#"> <i class="fa fa-envelope fticn"></i>
 								bomonLapTrinhWeb@gmail.com
 						</a></li>
-						<li><a href="#"> <i class="fa fa-map-marker fticn"></i>
-								1 Võ Văn Ngân, phường Linh Chiểu, Thủ Đức
+						<li><a href="#"> <i class="fa fa-map-marker fticn"></i> 1
+								Võ Văn Ngân, phường Linh Chiểu, Thủ Đức
 						</a></li>
 					</ul>
 				</div>
