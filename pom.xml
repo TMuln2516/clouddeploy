@@ -21,8 +21,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>2.6.4</version> <!-- Đặt phiên bản mới nhất của Spring
-				Boot -->
+				<version>2.6.3</version> <!-- Sử dụng phiên bản Spring Boot bạn
+				đang sử dụng -->
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
