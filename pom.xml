@@ -5,7 +5,7 @@
 	<groupId>JobSeeking</groupId>
 	<artifactId>JobSeeking</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -33,6 +33,14 @@
 	</build>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.6.4</version> <!-- Thay phiên bản này bằng phiên bản
+			Spring Boot bạn đang sử dụng -->
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
