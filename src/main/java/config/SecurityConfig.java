@@ -15,45 +15,29 @@ import service.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDetailsServiceImpl userDetailsService;
+	@Autowired
+	private UserDetailsServiceImpl userDetailsService;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+	}
 
-    @Configuration
-    public static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http
-                .authorizeRequests()
-                    .antMatchers("/register-user/**", "/detail/**", "/register-employer/**").permitAll()
-                    .antMatchers("/user/**", "/search/**", "/job/**").hasAnyAuthority("USER", "ADMIN", "EMPLOYER")
-                    .antMatchers("/admin/**").hasAuthority("ADMIN")
-                    .antMatchers("/employer/**", "/recruitment/**").hasAuthority("EMPLOYER")
-                    .anyRequest().permitAll()
-                    .and()
-                .formLogin()
-                    .loginPage("/login")
-                    .loginProcessingUrl("/doLogin")
-                    .defaultSuccessUrl("/loginSuccess")
-                    .failureUrl("/login?error=true")
-                    .and()
-                .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/doLogout"))
-                    .logoutSuccessUrl("/")
-                    .deleteCookies("JSESSIONID")
-                    .and()
-                .csrf().disable(); 
-        }
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers("/register-user/**", "/detail/**", "/register-employer/**").permitAll()
+				.antMatchers("/user/**", "/search/**", "/job/**").hasAnyAuthority("USER", "ADMIN", "EMPLOYER")
+				.antMatchers("/admin/**").hasAuthority("ADMIN").antMatchers("/employer/**", "/recruitment/**")
+				.hasAuthority("EMPLOYER").anyRequest().permitAll().and().formLogin().loginPage("/login")
+				.loginProcessingUrl("/doLogin").defaultSuccessUrl("/loginSuccess").failureUrl("/login?error=true").and()
+				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/doLogout")).logoutSuccessUrl("/")
+				.deleteCookies("JSESSIONID").and().csrf().disable();
+	}
 }
