@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,7 +19,6 @@ import service.UserDetailsServiceImpl;
 @Configuration
 @EnableWebSecurity
 @ComponentScan("service")
-@Order(Ordered.HIGHEST_PRECEDENCE)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -34,31 +31,45 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/**");
+        // Cho phép truy cập tất cả các tài nguyên tĩnh không bị kiểm soát bởi Spring Security
+        web.ignoring().antMatchers("/static/**", "/css/**", "/js/**", "/images/**");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.addFilterBefore(new EncodingFilter(), ChannelProcessingFilter.class);
+        
         http.authorizeRequests()
-            .antMatchers("/register-user/**").permitAll()
-            .antMatchers("/detail/**").permitAll()
-            .antMatchers("/register-employer/**").permitAll()
+            .antMatchers("/register-user/**", "/detail/**", "/register-employer/**").permitAll()
             .antMatchers("/user/**", "/search/**", "/job/**").hasAnyAuthority("USER", "ADMIN", "EMPLOYER")
             .antMatchers("/admin/**").hasAuthority("ADMIN")
             .antMatchers("/employer/**", "/recruitment/**").hasAuthority("EMPLOYER")
             .anyRequest().permitAll()
             .and()
             .formLogin()
-            .loginPage("/login")
-            .loginProcessingUrl("/doLogin")
-            .defaultSuccessUrl("/loginSuccess")
-            .failureUrl("/login?error=true")
+                .loginPage("/login")
+                .loginProcessingUrl("/doLogin")
+                .defaultSuccessUrl("/loginSuccess")
+                .failureUrl("/login?error=true")
             .and()
             .logout()
-            .logoutRequestMatcher(new AntPathRequestMatcher("/doLogout"))
-            .logoutSuccessUrl("/")
-            .deleteCookies("JSESSIONID")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/doLogout"))
+                .logoutSuccessUrl("/")
+                .deleteCookies("JSESSIONID")
             .and()
-            .csrf();
+            .csrf().disable(); // Tạm thời vô hiệu hóa CSRF để đơn giản hóa ví dụ, bạn nên bật nó trong môi trường thực tế.
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService);
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(authenticationProvider());
     }
 }
