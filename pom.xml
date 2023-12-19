@@ -57,12 +57,6 @@
 		</dependency>
 		<!-- Các dependencies khác... -->
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-			<version>2.6.3</version> <!-- Đặt phiên bản Spring Boot mà bạn đang
-			sử dụng -->
-		</dependency>
 
 		<dependency>
 			<groupId>com.google.cloud.sql</groupId>
