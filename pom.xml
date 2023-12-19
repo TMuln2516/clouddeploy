@@ -5,74 +5,11 @@
 	<groupId>JobSeeking</groupId>
 	<artifactId>JobSeeking</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.6.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-
-
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>2.4.4</version>
-				<configuration>
-					<version>1</version>
-					<projectId>GCLOUD_CONFIG</projectId>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>2.6.4</version> <!-- Sử dụng phiên bản mới nhất của
-				Spring Boot -->
-				<configuration>
-					<mainClass>com.example.demo.DemoApplication</mainClass> <!--
-					Thay bằng tên đầy đủ của class chính của bạn -->
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
+	<packaging>war</packaging>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
 	<dependencies>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<version>2.6.4</version> <!-- Thay phiên bản này bằng phiên bản
-			Spring Boot mà bạn đang sử dụng -->
-			<scope>runtime</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>2.6.4</version> <!-- Thay phiên bản này bằng phiên bản
-				Spring Boot mà bạn đang sử dụng -->
-		</dependency>
-		<!-- Các dependencies khác... -->
-
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-			<version>2.6.3</version> <!-- Đặt phiên bản Spring Boot mà bạn đang
-			sử dụng -->
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.cloud.sql</groupId>
-			<artifactId>mysql-socket-factory</artifactId>
-			<version>1.0.16</version>
-		</dependency>
 		<!-- Spring Framework dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -202,4 +139,28 @@
 			<version>1.0.16</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>2.4.4</version>
+				<configuration>
+					<version>1</version>
+					<projectId>GCLOUD_CONFIG</projectId>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
