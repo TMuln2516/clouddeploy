@@ -36,6 +36,15 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<version>2.6.4</version> <!-- Thay phiên bản này bằng phiên bản
+			Spring Boot mà bạn đang sử dụng -->
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 			<version>2.6.3</version> <!-- Đặt phiên bản Spring Boot mà bạn đang
 			sử dụng -->
