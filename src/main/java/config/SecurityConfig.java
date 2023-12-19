@@ -1,6 +1,8 @@
 package config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import service.UserDetailsServiceImpl;
 
 @Configuration
-@EnableWebSecurity
+@EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 @ComponentScan("service")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
